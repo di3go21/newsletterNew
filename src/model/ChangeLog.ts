@@ -30,11 +30,9 @@ export class ChangeLog {
 
 
     /**Fabrica desde un string directamente leído de un changelog un objeto ChangeLog */
-    public static FabricaChangeLogObjDesdeString(changeLogTxt:string){
-        
+    public static FabricaChangeLogObjDesdeString(changeLogTxt:string){        
         var cadenaSinSaltos=changeLogTxt
         cadenaSinSaltos=cadenaSinSaltos.substring(cadenaSinSaltos.indexOf("###"));        
-        console.log(cadenaSinSaltos);
         var tmp =new ChangeLog([],[],[],[],[]);
         var campos=["Added","Changed","Fixed","Deprecated","Removed"];
         while(campos.length>0){
@@ -46,21 +44,15 @@ export class ChangeLog {
                         .split("###")[0]
                         .split(/(\r|\n)- /).filter(a=>a.trim()!="");
                 valores.forEach((val,ind)=>valores[ind]=val.replace(/(\n|\r)/g,"").trim());
-
-                console.log("valor campo "+campo);
-                console.log(valores);
                 tmp.setPropeidad(campo[0],tmp,valores);
             }
-            cadenaSinSaltos=cadenaSinSaltos.substring(cadenaSinSaltos.indexOf("### "+campos[0]))
+            cadenaSinSaltos=cadenaSinSaltos.substring(cadenaSinSaltos.indexOf("### "+campos[0]));
          
         }
         return tmp;
-
-
-
     }
 
-    public setPropeidad(prop:string,obj:ChangeLog,valores:string[]):void{
+    private setPropeidad(prop:string,obj:ChangeLog,valores:string[]):void{
 
         switch (prop) {
             case "Added":
