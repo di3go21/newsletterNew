@@ -27,7 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
                 console.log(`Error: ${error}`);
             });
         //recogemos solo un par para probar
-        var tagA = tags.filter(tag=>tag.getTag()=="1.5.0")[0];
+        var tagA = tags.filter(tag=>tag.getTag()=="1.4.0")[0];
         var tagB = tags.filter(tag=>tag.getTag()=="1.4.1")[0];
 
 
