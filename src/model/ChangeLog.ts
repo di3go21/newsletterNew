@@ -30,7 +30,7 @@ export class ChangeLog {
 
 
     /**Fabrica desde un string directamente leído de un changelog un objeto ChangeLog */
-    public static FabricaChangeLogObjDesdeString(changeLogTxt:string){        
+    public static FabricaChangeLogObjDesdeString(changeLogTxt:string):ChangeLog{        
         var cadenaSinSaltos=changeLogTxt
         cadenaSinSaltos=cadenaSinSaltos.substring(cadenaSinSaltos.indexOf("###"));        
         var tmp =new ChangeLog([],[],[],[],[]);
